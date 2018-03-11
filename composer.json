@@ -1,0 +1,40 @@
+{
+    "name": "calderawp/pusher-api",
+    "description": "Example code for a plugin that modifies default post routes to improve search",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Josh Pollock",
+            "email": "josh@calderawp.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "calderawp\\PusherAPI\\": "src"
+        }
+    },
+    "scripts" : {
+        "tests" : "composer fixes && composer sniffs && composer test",
+        "test": "composer unit-tests",
+        "unit-tests": "phpunit --testsuite=unit",
+        "phpunit-v": "phpunit --version",
+        "sniffs" : "phpcs src/ && phpcs tests/",
+        "fixes" : "phpcbf src/ && phpcbf tests/",
+        "lints" : "parallel-lint ./src  --blame --exclude vendor && parallel-lint ./tests  --blame --exclude vendor"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "calderawp\\PusherAPI\\Tests\\": "tests/"
+        },
+        "files": ["Tests/Mock/WP_Post.php"]
+    },
+    "require-dev": {
+        "php": "^7.1",
+        "phpunit/phpunit": "^7.0",
+        "squizlabs/php_codesniffer": "^3.2",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "brainmaestro/composer-git-hooks": "^2.4"
+    }
+}
