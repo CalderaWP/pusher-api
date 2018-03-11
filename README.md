@@ -1,14 +1,13 @@
 Install plugins from Github/Gitlab/Bitbucket via REST API request. Requires [WP_Pusher](https://wppusher.com).
 
-[<strong>You probably should not use this</strong>. Seriously, I'm using this for automated acceptance testing. It's going to run on sites that exist for a 5 minutes at a time. There is an authorization filter, that is false by default, but still, think this one through -- you can set this to allow remote installation of WordPress plugins from any Github/lab or Bitbucket repo.](#Security)
+[<strong>You probably should not use this</strong>. Seriously, I'm using this for automated acceptance testing. It's going to run on sites that exist for a 5 minutes at a time. There is an authorization filter, that is false by default, but still, think this one through -- you can set this to allow remote installation of WordPress plugins from any Github/lab or Bitbucket repo.](#security)
 ## Endpoint
 This plugin adds one endpoint `/wp-json/caldera/pusher/v1/plugin`.
 
 * Use a DELETE request to delete plugin.
 * All other methods will <strong>delete the plugin</strong> if installed and then install it.
 * Install Caldera Forms using the develop branch and activate it.
-    - `https://caldera-dev.lndo.site/wp-json/caldera/pusher/v1/plugin?repo=calderawp/caldera-forms&branch=develop&basename=caldera-forms/caldera-core.phphttps://caldera-dev.lndo.site/wp-json/caldera/pusher/v1/plugin?repo=calderawp/caldera-forms&branch=develop&basename=caldera-forms/caldera-core.php`
-
+    - For example: `https://caldera-dev.lndo.site/wp-json/caldera/pusher/v1/plugin?repo=calderawp/caldera-forms&branch=develop&basename=caldera-forms/caldera-core.php
 Args: 
 
 ```json
